@@ -1,5 +1,3 @@
-//: [Previous](@previous)
-
 import Foundation
 
 //This is a sample string
@@ -25,4 +23,4 @@ let num2 = 2
 
 let interpolatedString = "\(num1) + \(num2) = \(num1+num2)"
 
-//: [Next](@next)
+//: [Collections](@next)
