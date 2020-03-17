@@ -333,40 +333,292 @@ func permutationEquation(p: [Int]) -> [Int] {
 permutationEquation(p: [2,3,1])
 permutationEquation(p: [4,3,5,1,2])
 
-/// TODO: This is causing infinite loop
-//func pickingNumbers(a: [Int]) -> Int {
-//    // Write your code here
-//    let sortedArray = a.sorted()
-//    var index = 0
-//    var maxCount = 0
+
+func countApplesAndOranges(s: Int, t: Int, a: Int, b: Int, apples: [Int], oranges: [Int]) -> Void {
+
+    let range = s...t
+
+    let applesOnHome = apples.filter {
+        range.contains(a+$0)
+    }
+
+    let orangesOnHome = oranges.filter {
+        range.contains(b+$0)
+    }
+
+    print(applesOnHome.count)
+    print(orangesOnHome.count)
+
+}
+
+func getMoneySpent(keyboards: [Int], drives: [Int], b: Int) -> Int {
+    /*
+     * Write your code here.
+     */
+
+    var totalCost = -1
+
+    for keyboard in keyboards {
+        for drive in drives {
+            let cost = keyboard + drive
+            if cost <= b {
+                if totalCost < cost {
+                    totalCost = cost
+                }
+            }
+        }
+    }
+
+    return totalCost
+}
+
+getMoneySpent(keyboards: [3,1], drives: [5,2,8], b: 10)
+getMoneySpent(keyboards: [5], drives: [4], b: 5)
+
+
+func catAndMouse(x: Int, y: Int, z: Int) -> String {
+    if abs(z-y) < abs(z-x) {
+        return "Cat B"
+    } else if abs(z-y) == abs(z-x) {
+        return "Mouse C"
+    } else {
+        return "Cat A"
+    }
+
+}
+
+print(catAndMouse(x: 1, y: 2, z: 3))
+print(catAndMouse(x: 1, y: 3, z: 2))
+
+// Complete the designerPdfViewer function below.
+func designerPdfViewer(h: [Int], word: String) -> Int {
+    let alphabets = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    var alphabetDict: [String:Int] = [:]
+    for index in 0..<h.count {
+        alphabetDict[alphabets[index]] = h[index]
+    }
+    var maxHeight = 0
+    for character in word {
+        if let value = alphabetDict[String(character)] {
+            if maxHeight < value {
+                maxHeight = value
+            }
+        }
+    }
+    return maxHeight * word.count
+}
+
+designerPdfViewer(h: [1,3,1,3,1,4,1,3,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,7], word: "zaba")
+designerPdfViewer(h: [1,3,1,3,1,4,1,3,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5], word: "abc")
+
+
+func circularArrayRotation(a: [Int], k: Int, queries: [Int]) -> [Int] {
+
+    let noOfRotations = k%a.count
+
+    var aCopy = a
+    let slice = aCopy.suffix(noOfRotations)
+    aCopy.removeLast(noOfRotations)
+    aCopy.insert(contentsOf: slice, at: 0)
+
+    var modified: [Int] = []
+    modified.reserveCapacity(queries.count)
+
+    for index in queries {
+        modified.append(aCopy[index])
+    }
+
+    return modified
+}
+
+circularArrayRotation(a: [3,4,5], k: 2, queries: [1,2])
+circularArrayRotation(a: [1,2,3], k: 2, queries: [0,1,2])
+
+
+func hurdleRace(k: Int, height: [Int]) -> Int {
+    let sortedHeights = height.sorted()
+    let minDoses = sortedHeights.last! - k
+    return minDoses > 0 ? minDoses : 0
+}
+
+hurdleRace(k:4 , height: [1,6,3,5,2])
+hurdleRace(k:7, height:  [2,5, 4, 5, 2])
+
+
+// Complete the kaprekarNumbers function below.
+func kaprekarNumbers(p: Int, q: Int) -> Void {
+    
+    var hasKaprekarNumber = false
+    
+    for number in p...q {
+        let square = number * number
+        let numberString = String(number)
+        let squareString = String(square)
+        
+        let squarePostSubString = squareString.suffix(numberString.count)
+        let squarePreSubString = squareString.prefix(squareString.count - squarePostSubString.count)
+        
+        let sum: Int = (Int(String(squarePreSubString)) ?? 0) + (Int(String(squarePostSubString)) ?? 0)
+        
+        if sum == number {
+            hasKaprekarNumber = true
+            print(number, terminator: "")
+            if number != q {
+                print(" ", terminator: "")
+            }
+        }
+    }
+    
+    if hasKaprekarNumber == false {
+        print("INVALID RANGE")
+    }
+}
+
+kaprekarNumbers(p: 1, q: 100)
+
+// Complete the utopianTree function below.
+func utopianTree(n: Int) -> Int {
+
+    var height = 1
+
+    if n > 0 {
+        for index in  1...n {
+            if index%2 == 0 {
+                // increase the height by 1
+                height += 1
+
+            } else {
+                // double the height
+                height *= 2
+            }
+        }
+    }
+
+
+    return height
+
+}
+
+utopianTree(n: 1)
+
+
+/// Complete the appendAndDelete function below.
+extension String {
+    subscript(i: Int) -> String {
+        return String(self[index(startIndex, offsetBy: i)])
+    }
+    
+    subscript(_ range: CountableRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: max(0, range.lowerBound))
+        let end = index(startIndex, offsetBy: min(self.count, range.upperBound))
+        return String(self[start..<end])
+    }
+
+    subscript(_ range: CountablePartialRangeFrom<Int>) -> String {
+        let start = index(startIndex, offsetBy: max(0, range.lowerBound))
+         return String(self[start...])
+    }
+}
+
+// MARK: This is not a viable solution for some test cases.
+// This logic needs to work upon.
+//func appendAndDelete(s: String, t: String, k: Int) -> String {
 //
-//    while index < sortedArray.count {
-//        var subArray = [Int]()
-//        let startIndex = index
-//        for item in startIndex..<sortedArray.count {
-//            if subArray.count == 0 {
-//                subArray.append(sortedArray[index])
-//            } else {
-//                if sortedArray[item] - sortedArray[index] <= 1 {
-//                    subArray.append(sortedArray[item])
-//                    if sortedArray[item] != sortedArray[item - 1] {
-//                        index = item
-//                    }
-//                } else {
-//                    break
-//                }
-//            }
-//        }
-//
-//        if maxCount < subArray.count {
-//            maxCount = subArray.count
+//    var isPossible = "No"
+//    let loopCount = s.count > t.count ? t.count : s.count
+//    var mismatchedIndex = -1
+//    
+//    for index in 0..<loopCount {
+//        if s[index] != t[index] {
+//            mismatchedIndex = index
+//            break
 //        }
 //    }
+//    
+//    let sLengthRemain = s.count - mismatchedIndex
+//    let tLengthRemain = t.count - mismatchedIndex
+//    
+//    var outputString = s[0..<mismatchedIndex]
+//    var noOfOperations = k
+//    
+//    if sLengthRemain > 0 && noOfOperations > sLengthRemain {
+//        noOfOperations -= sLengthRemain
+//    }
+//    
+//    while noOfOperations > 0 {
+//        if noOfOperations > tLengthRemain {
+//            noOfOperations = tLengthRemain
+//        } else if noOfOperations == tLengthRemain {
+//            outputString.append(t[mismatchedIndex..<t.count])
+//            noOfOperations -= tLengthRemain
+//            
+//            if outputString == t {
+//                isPossible = "Yes"
+//            }
+//            break
+//        } else if noOfOperations < tLengthRemain {
+//            outputString.append(t[mismatchedIndex..<(tLengthRemain - sLengthRemain)])
+//            noOfOperations -= (tLengthRemain - sLengthRemain)
+//            
+//            if outputString == t {
+//                isPossible = "Yes"
+//            } else {
+//                break
+//            }
+//            
+//        }
+//    }
+//    
+//    return isPossible
 //
-//    return maxCount
 //}
 //
-//pickingNumbers(a: [1, 2, 2, 3, 1, 2])
+//appendAndDelete(s: "hackerhappy", t: "hackerrank", k: 9)
+//appendAndDelete(s: "aba", t: "aba", k: 7)
+//appendAndDelete(s: "ashley", t: "ash", k: 2)
+
+func pickingNumbers(a: [Int]) -> Int {
+    let sortedArray = a.sorted()
+    
+    var maxCount = 0
+    var startIndex = 0
+    
+    while startIndex < sortedArray.count {
+        var subArray: [Int] = []
+        subArray.append(sortedArray[startIndex])
+        var updatedIndex: Int?
+        
+        for index in startIndex+1..<sortedArray.count {
+            if abs(sortedArray[startIndex] - sortedArray[index]) <= 1 {
+                subArray.append(sortedArray[index])
+                if updatedIndex == nil && sortedArray[startIndex] != sortedArray[index] {
+                    updatedIndex = index
+                }
+            } else {
+                if updatedIndex == nil{
+                    updatedIndex = index
+                }
+                break
+            }
+        }
+        
+        if let updatedIndex = updatedIndex {
+            startIndex = updatedIndex
+        } else {
+            startIndex = sortedArray.count
+        }
+        
+        if subArray.count > 1 && maxCount < subArray.count {
+            maxCount = subArray.count
+        }
+    }
+    return maxCount
+}
+
+pickingNumbers(a: [7,12,13,19,17,7,3,18,9,18,13,12,3,13,7,9,18,9,18,9,13,18,13,13,18,18,17,17,13,3,12,13,19,17,19,12,18,13,7,3,3,12,7,13,7,3,17,9,13,13,13,12,18,18,9,7,19,17,13,18,19,9,18,18,18,19,17,7,12,3,13,19,12,3,9,17,13,19,12,18,13,18,18,18,17,13,3,18,19,7,12,9,18,3,13,13,9,7])
+pickingNumbers(a: [4, 6, 5, 3, 3, 1])
+pickingNumbers(a: [4, 6, 8, 10, 12, 14])
+
 
 
 //: [Next](@next)
