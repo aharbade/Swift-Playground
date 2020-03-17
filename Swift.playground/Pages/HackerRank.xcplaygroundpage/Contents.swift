@@ -527,31 +527,31 @@ extension String {
 //    var isPossible = "No"
 //    let loopCount = s.count > t.count ? t.count : s.count
 //    var mismatchedIndex = -1
-//    
+//
 //    for index in 0..<loopCount {
 //        if s[index] != t[index] {
 //            mismatchedIndex = index
 //            break
 //        }
 //    }
-//    
+//
 //    let sLengthRemain = s.count - mismatchedIndex
 //    let tLengthRemain = t.count - mismatchedIndex
-//    
+//
 //    var outputString = s[0..<mismatchedIndex]
 //    var noOfOperations = k
-//    
+//
 //    if sLengthRemain > 0 && noOfOperations > sLengthRemain {
 //        noOfOperations -= sLengthRemain
 //    }
-//    
+//
 //    while noOfOperations > 0 {
 //        if noOfOperations > tLengthRemain {
 //            noOfOperations = tLengthRemain
 //        } else if noOfOperations == tLengthRemain {
 //            outputString.append(t[mismatchedIndex..<t.count])
 //            noOfOperations -= tLengthRemain
-//            
+//
 //            if outputString == t {
 //                isPossible = "Yes"
 //            }
@@ -559,16 +559,16 @@ extension String {
 //        } else if noOfOperations < tLengthRemain {
 //            outputString.append(t[mismatchedIndex..<(tLengthRemain - sLengthRemain)])
 //            noOfOperations -= (tLengthRemain - sLengthRemain)
-//            
+//
 //            if outputString == t {
 //                isPossible = "Yes"
 //            } else {
 //                break
 //            }
-//            
+//
 //        }
 //    }
-//    
+//
 //    return isPossible
 //
 //}
@@ -620,5 +620,62 @@ pickingNumbers(a: [4, 6, 5, 3, 3, 1])
 pickingNumbers(a: [4, 6, 8, 10, 12, 14])
 
 
+func beautifulDays(i: Int, j: Int, k: Int) -> Int {
+
+    var daysCount = 0
+    
+    for day in i...j {
+        let beautifulDay = abs(day-reverseANumber(number: day))%k == 0 ? true : false
+        if beautifulDay == true {
+            daysCount += 1
+        }
+    }
+    
+    return daysCount
+}
+
+func reverseANumber(number: Int) -> Int {
+    var reverse = 0
+    var n = number
+    while(n != 0)
+    {
+      reverse = reverse * 10
+      reverse = reverse + n%10
+      n = n/10;
+    }
+    
+    return reverse
+}
+
+beautifulDays(i: 20, j: 23, k: 6)
+
+// Complete the breakingRecords function below.
+func breakingRecords(scores: [Int]) -> [Int] {
+    
+    var highestScore = scores.first ?? 0
+    var lowestScore = scores.first ?? 0
+    var highestScoreBeatCount = 0
+    var lowestScoreBeatCount = 0
+    
+    for index in 1..<scores.count {
+        let score = scores[index]
+        
+        if score > highestScore {
+            highestScore = score
+            highestScoreBeatCount += 1
+        }
+        
+        if score < lowestScore {
+            lowestScore = score
+            lowestScoreBeatCount += 1
+        }
+    }
+    
+    return [highestScoreBeatCount, lowestScoreBeatCount]
+
+}
+
+breakingRecords(scores: [10, 5, 20, 20, 4, 5, 2, 25, 1])
+breakingRecords(scores: [3, 4, 21, 36, 10, 28, 35, 5, 24, 42])
 
 //: [Next](@next)
