@@ -678,4 +678,89 @@ func breakingRecords(scores: [Int]) -> [Int] {
 breakingRecords(scores: [10, 5, 20, 20, 4, 5, 2, 25, 1])
 breakingRecords(scores: [3, 4, 21, 36, 10, 28, 35, 5, 24, 42])
 
+func isPerfectSquareInt(square: Int) -> Bool {
+    
+    let sqrt = Double(square).squareRoot()
+    let rounded = sqrt.rounded()
+    return (sqrt == rounded)
+}
+
+isPerfectSquareInt(square: 3)
+isPerfectSquareInt(square: 9)
+isPerfectSquareInt(square: 225)
+isPerfectSquareInt(square: 35)
+isPerfectSquareInt(square: 2405601)
+
+
+
+// Complete the squares function below.
+func squares(a: Int, b: Int) -> Int {
+    var squareCount = 0
+    var number = a
+    for num in a...b {
+        let sqrt = Double(num).squareRoot()
+        let rounded = sqrt.rounded()
+        if (sqrt == rounded) {
+            squareCount += 1
+            number = num
+            break
+        }
+    }
+    
+    if squareCount > 0 {
+        while number < b {
+            var sqrt = Int(Double(number).squareRoot())
+            sqrt += 1
+            let square = sqrt * sqrt
+            if square <= b {
+                squareCount += 1
+            }
+            number = square
+        }
+    }
+    return squareCount
+}
+
+func squares2(a: Int, b: Int) -> Int {
+    var squareCount = 0
+    for number in a...b {
+        let sqrt = Double(number).squareRoot()
+        let rounded = sqrt.rounded()
+        if (sqrt == rounded) {
+            squareCount += 1
+        }
+    }
+    
+    return squareCount
+}
+
+squares(a: 3, b: 64)
+squares2(a: 3, b: 64)
+
+// Complete the equalizeArray function below.
+func equalizeArray(arr: [Int]) -> Int {
+    let sorted = arr.sorted()
+    var currentNumber = sorted.first
+    var removals = sorted.count - 1
+    var minRemovals = removals
+    
+    for index in 1..<sorted.count {
+        let number = sorted[index]
+        if number == currentNumber {
+            removals -= 1
+            if minRemovals > removals {
+                minRemovals = removals
+            }
+        } else {
+            currentNumber = number
+            removals = sorted.count - 1
+        }
+    }
+    return minRemovals
+}
+
+equalizeArray(arr: [3,3,2,1,3])
+equalizeArray(arr: [1,2,3,4,5])
+equalizeArray(arr: [1,1,2,3,4,3,3,5,4])
+
 //: [Next](@next)
