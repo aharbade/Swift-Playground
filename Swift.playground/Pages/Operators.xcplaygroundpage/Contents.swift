@@ -1,0 +1,40 @@
+//: [Enumerations](@previous)
+
+import Foundation
+
+// Arithematic Operators in Swift (+, -, *, /)
+let firstScore = 12
+let secondScore = 4
+
+let total = firstScore + secondScore
+let difference = firstScore - secondScore
+
+let product = firstScore * secondScore
+let divided = firstScore / secondScore
+
+// Operator Overloading
+let string = "Hello"
+let greeting = string + "World"
+
+let couple = ["Alex", "Alice"]
+let family = couple + ["Andy"]
+
+// Compound Operators
+var score = 95
+score -= 5
+
+var quote = "America is "
+quote += "a great country!"
+
+// Comparison Operators
+firstScore == secondScore
+firstScore != secondScore
+
+firstScore < secondScore
+firstScore >= secondScore
+
+let firstName = "Alex"
+let lastName = "Stuart"
+firstName < lastName
+
+//: [Conditions](@next)
