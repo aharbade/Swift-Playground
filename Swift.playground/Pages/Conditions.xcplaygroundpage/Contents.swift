@@ -12,5 +12,20 @@ if firstHand + secondHand == 21 {
     print("Way to go!")
 }
 
+// Switch Case
+let weather = "Cold"
+
+switch weather {
+case "Sunny":
+    print("Wear a sunscreen.")
+case "Rain":
+    print("Wear a raincoat.")
+case "Cold":
+    print("Wear a Jacket.")
+    // fallthrough - enables you to execute the next case.
+default:
+    print("Enjoy the weather!")
+}
+
 
 //: [Next](@next)

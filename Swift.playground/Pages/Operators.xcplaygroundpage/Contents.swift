@@ -37,4 +37,10 @@ let firstName = "Alex"
 let lastName = "Stuart"
 firstName < lastName
 
+// Ternary Operators
+let firstCard = 10
+let secondCard = 11
+print(firstCard == secondCard ? "Cards are same" : "Cards are different")
+
+
 //: [Conditions](@next)
