@@ -7,6 +7,7 @@
         <page name='Enumerations'/>
         <page name='Operators'/>
         <page name='Conditions'/>
+        <page name='Loops'/>
         <page name='Closures'/>
     </pages>
 </playground>

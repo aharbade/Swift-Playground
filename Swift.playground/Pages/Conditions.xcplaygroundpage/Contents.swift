@@ -28,4 +28,4 @@ default:
 }
 
 
-//: [Next](@next)
+//: [Loops](@next)

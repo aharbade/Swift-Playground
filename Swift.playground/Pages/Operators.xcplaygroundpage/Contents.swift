@@ -42,5 +42,15 @@ let firstCard = 10
 let secondCard = 11
 print(firstCard == secondCard ? "Cards are same" : "Cards are different")
 
+// Range Operators
+score = 85
+switch score {
+case 0..<50:
+    print("You failed miserably.")
+case 50..<85:
+    print("You did OK.")
+default:
+    print("You did great!")
+}
 
 //: [Conditions](@next)
