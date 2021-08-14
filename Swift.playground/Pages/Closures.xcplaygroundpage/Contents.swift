@@ -1,4 +1,4 @@
-//: [Enumerations](@previous)
+//: [Functions](@previous)
 
 import Foundation
 
@@ -77,7 +77,7 @@ func travel () -> (String) -> Void {
 }
 
 let result = travel()
-result("London")    
+result("London")
 
 
-//: [Next](@next)
+//: [Structs](@next)

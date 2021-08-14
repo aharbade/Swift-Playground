@@ -10,5 +10,7 @@
         <page name='Loops'/>
         <page name='Functions'/>
         <page name='Closures'/>
+        <page name='Structs'/>
+        <page name='Properties'/>
     </pages>
 </playground>
