@@ -8,6 +8,7 @@
         <page name='Operators'/>
         <page name='Conditions'/>
         <page name='Loops'/>
+        <page name='Functions'/>
         <page name='Closures'/>
     </pages>
 </playground>
