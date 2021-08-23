@@ -1,4 +1,4 @@
-//: [Enumerations](@previous)
+//: [<- Enumerations](@previous)
 
 import Foundation
 
@@ -53,4 +53,4 @@ default:
     print("You did great!")
 }
 
-//: [Conditions](@next)
+//: [Conditions ->](@next)

@@ -1,4 +1,4 @@
-//: [Operators](@previous)
+//: [<- Operators](@previous)
 
 import Foundation
 
@@ -28,4 +28,4 @@ default:
 }
 
 
-//: [Loops](@next)
+//: [Loops ->](@next)

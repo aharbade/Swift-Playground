@@ -1,4 +1,4 @@
-//: [Properties](@previous)
+//: [<- Properties](@previous)
 
 import Foundation
 
@@ -60,4 +60,4 @@ print(singer.name)
 // constant class with a variable property, that property
 // can be changed.
 
-//: [Protocols](@next)
+//: [Protocols ->](@next)

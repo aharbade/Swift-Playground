@@ -1,4 +1,4 @@
-//: [Functions](@previous)
+//: [<- Functions](@previous)
 
 import Foundation
 
@@ -79,4 +79,4 @@ let result = travel()
 result("London")
 
 
-//: [Structs](@next)
+//: [Structs ->](@next)

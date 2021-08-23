@@ -1,4 +1,4 @@
-//: [Protocols](@previous)
+//: [<- Protocols](@previous)
 
 import Foundation
 

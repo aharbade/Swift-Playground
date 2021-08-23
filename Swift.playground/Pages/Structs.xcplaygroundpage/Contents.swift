@@ -1,4 +1,4 @@
-//: [Closures](@previous)
+//: [<- Closures](@previous)
 
 import Foundation
 
@@ -62,4 +62,4 @@ india.name = "India"
 
 
 
-//: [Properties](@next)
+//: [Properties ->](@next)

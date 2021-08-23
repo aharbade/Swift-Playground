@@ -1,4 +1,4 @@
-//: [Class](@previous)
+//: [<- Class](@previous)
 
 import Foundation
 
@@ -50,4 +50,4 @@ extension Collection {
 
 pythons.summarize()
 beetles.summarize()
-//: [Optionals](@next)
+//: [Optionals ->](@next)

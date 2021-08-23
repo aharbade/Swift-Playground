@@ -1,4 +1,4 @@
-//: [Conditions](@previous)
+//: [<- Conditions](@previous)
 
 import Foundation
 
@@ -62,4 +62,4 @@ for num in 0...10 {
     print(num)
 }
 
-//: [Next](@next)
+//: [Next ->](@next)

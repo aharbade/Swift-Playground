@@ -1,4 +1,4 @@
-//: [Loops](@previous)
+//: [<- Loops](@previous)
 
 import Foundation
 
@@ -82,4 +82,4 @@ for _ in 0..<5 {
     growTheNumber(&number)
 }
 print(number)
-//: [Closures](@next)
+//: [Closures ->](@next)

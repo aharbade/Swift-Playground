@@ -1,4 +1,4 @@
-//: [Structs](@previous)
+//: [<- Structs](@previous)
 
 import Foundation
 
@@ -87,4 +87,4 @@ Student.classCount
 Student.printClassCount()
 
 
-//: [Class](@next)
+//: [Class ->](@next)
