@@ -50,4 +50,4 @@ extension Collection {
 
 pythons.summarize()
 beetles.summarize()
-//: [Next](@next)
+//: [Optionals](@next)

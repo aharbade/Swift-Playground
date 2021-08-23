@@ -60,4 +60,4 @@ print(singer.name)
 // constant class with a variable property, that property
 // can be changed.
 
-//: [Next](@next)
+//: [Protocols](@next)
