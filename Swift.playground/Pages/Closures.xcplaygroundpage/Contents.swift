@@ -14,7 +14,6 @@ action()
 // Closure with a parameter
 let square = { (number: Int) in
     print("Square of \(number) is \(number * number)")
-    
 }
 
 square(4)

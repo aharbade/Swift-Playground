@@ -12,5 +12,7 @@
         <page name='Closures'/>
         <page name='Structs'/>
         <page name='Properties'/>
+        <page name='Class'/>
+        <page name='Protocols'/>
     </pages>
 </playground>

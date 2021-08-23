@@ -87,4 +87,4 @@ Student.classCount
 Student.printClassCount()
 
 
-//: [Next](@next)
+//: [Class](@next)
